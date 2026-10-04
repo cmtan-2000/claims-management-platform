@@ -37,17 +37,16 @@ namespace Claims.Api.Modules.Claims.Controllers
                     claimantId,
                     dto);
 
-            return CreatedAtAction(
-                nameof(GetById),
-                new { id = policyId },
+            return Created(
+                $"/api/policies/{policyId}",
                 new { id = policyId });
         }
 
-        [HttpGet("{id:guid}")]
-        public async Task<IActionResult> GetById(Guid id)
+        [HttpGet("{claimentId:guid}")]
+        public async Task<IActionResult> GetById(Guid claimentId)
         {
             var claimant =
-                await _policyService.GetByIdAsync(id);
+                await _policyService.GetListByClaimantIdAsync(claimentId);
 
             if (claimant is null)
                 return NotFound();

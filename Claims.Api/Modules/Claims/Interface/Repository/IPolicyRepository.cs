@@ -7,7 +7,7 @@ namespace Claims.Api.Modules.Claims.Interface.Repository
 {
     public interface IPolicyRepository
     {
-        Task<Policy?> GetByIdAsync(Guid id);
+        Task<List<Policy>> GetListByClaimantIdAsync(Guid claimantId);
         Task AddAsync(Policy policy);
     }
 }

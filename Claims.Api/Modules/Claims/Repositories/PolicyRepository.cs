@@ -22,10 +22,10 @@ namespace Claims.Api.Modules.Claims.Repositories
             await _db.Policies.AddAsync(policy);
         }
 
-        public async Task<Policy?> GetByIdAsync(Guid id)
+        public async Task<List<Policy>> GetListByClaimantIdAsync(Guid claimantId)
         {
-            return await _db.Policies
-                .FirstOrDefaultAsync(p => p.Id == id);
+            return await _db.Policies.Where(p => p.ClaimantId == claimantId)
+                .ToListAsync();
         }
     }
 }

@@ -15,6 +15,17 @@ using Claims.Api.Modules.Dashboards.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("Angular", policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:4200")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
         {
@@ -78,7 +89,7 @@ builder.Services
         };
     });
 var app = builder.Build();
-
+app.UseCors("Angular");
 app.UseAuthentication();
 
 app.UseAuthorization();

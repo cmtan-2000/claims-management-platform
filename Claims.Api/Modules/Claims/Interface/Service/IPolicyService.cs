@@ -9,6 +9,7 @@ namespace Claims.Api.Modules.Claims.Interface.Service
     public interface IPolicyService
     {
         Task<Guid> CreateAsync(Guid claimantId, CreatePolicyDto dto);
-        Task<Policy?> GetByIdAsync(Guid id);
+        Task<List<Policy>> GetListByClaimantIdAsync(Guid claimantId);
+
     }
 }

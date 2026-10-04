@@ -39,9 +39,9 @@ namespace Claims.Api.Modules.Claims.Services
             return policy.Id;
         }
 
-        public async Task<Policy?> GetByIdAsync(Guid id)
+        public async Task<List<Policy>> GetListByClaimantIdAsync(Guid claimantId)
         {
-            return await _policyRepository.GetByIdAsync(id);
+            return await _policyRepository.GetListByClaimantIdAsync(claimantId);
         }
     }
 }
