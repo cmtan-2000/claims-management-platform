@@ -44,6 +44,11 @@ namespace Claims.Api.Modules.Claims.Services
             return await _claimsOfficerRepository.GetAllAsync();
         }
 
+        public async Task<ClaimsOfficer?> GetByEmailAsync(string email)
+        {
+            return await _claimsOfficerRepository.GetByEmailAsync(email.Trim().ToLowerInvariant());
+        }
+
         public async Task<ClaimsOfficer?> GetByIdAsync(Guid id)
         {
             return await _claimsOfficerRepository.GetByIdAsync(id);

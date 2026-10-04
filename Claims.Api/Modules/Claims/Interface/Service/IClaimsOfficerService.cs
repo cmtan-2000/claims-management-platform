@@ -11,5 +11,6 @@ namespace Claims.Api.Modules.Claims.Interface.Service
         Task<Guid> CreateAsync(CreateClaimsOfficerDto dto);
         Task<ClaimsOfficer?> GetByIdAsync(Guid id);
         Task<List<ClaimsOfficer>> GetAllAsync();
+        Task<ClaimsOfficer?> GetByEmailAsync(string email);
     }
 }

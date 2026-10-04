@@ -27,6 +27,14 @@ namespace Claims.Api.Modules.Claims.Repositories
             return await _db.ClaimsOfficers.AsNoTracking().ToListAsync();
         }
 
+        public async Task<ClaimsOfficer?> GetByEmailAsync(string email)
+        {
+            email = email.Trim().ToLowerInvariant();
+
+            return await _db.ClaimsOfficers
+                .FirstOrDefaultAsync(x => x.Email.ToLower() == email);
+        }
+
         public async Task<ClaimsOfficer?> GetByIdAsync(Guid officerId)
         {
             return await _db.ClaimsOfficers.FirstOrDefaultAsync(o => o.Id == officerId);

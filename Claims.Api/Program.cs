@@ -12,6 +12,7 @@ using System.Text.Json.Serialization;
 using Claims.Api.Modules.Claims.Interface.Repository;
 using Claims.Api.Modules.Dashboards.Interface.Services;
 using Claims.Api.Modules.Dashboards.Services;
+using Claims.Api.Modules.Auth;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -61,6 +62,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     ));
 
 builder.Services.AddScoped<JwtTokenGenerator>();
+builder.Services.AddScoped<AuthService>();
+
 
 builder.Services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

@@ -183,9 +183,13 @@ namespace Claims.Api.Modules.Claims.Services
                 .Select(x => new ClaimListDto
                 {
                     Id = x.Id,
+                    IncidentDate = x.IncidentDate,
+                    IncidentDescription = x.IncidentDescription,
+                    EstimatedLiability = x.EstimatedLiability,
                     ClaimNumber = x.ClaimNumber,
                     Status = x.Status,
                     CreatedAt = x.CreatedAt
+
                 })
                 .ToList();
         }
@@ -200,6 +204,8 @@ namespace Claims.Api.Modules.Claims.Services
                     Id = x.Id,
                     ClaimNumber = x.ClaimNumber,
                     ClaimantId = x.ClaimantId,
+                    IncidentDate = x.IncidentDate,
+                    IncidentDescription = x.IncidentDescription,
                     AssignedOfficerId = x.AssignedOfficerId,
                     Status = x.Status,
                     EstimatedLiability = x.EstimatedLiability,

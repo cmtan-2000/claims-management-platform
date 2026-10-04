@@ -23,6 +23,14 @@ namespace Claims.Api.Modules.Claims.Repositories
                 .FirstOrDefaultAsync(x => x.Id == id);
         }
 
+        public async Task<Claimant?> GetByEmailAsync(string email)
+        {
+            email = email.Trim().ToLowerInvariant();
+
+            return await _db.Claimants
+                .FirstOrDefaultAsync(x => x.Email.ToLower() == email);
+        }
+
         public async Task AddAsync(Claimant claimant)
         {
             await _db.Claimants.AddAsync(claimant);

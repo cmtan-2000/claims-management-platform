@@ -10,6 +10,8 @@ namespace Claims.Api.Modules.Claims.DTOs
     {
         public Guid Id { get; set; }
         public string ClaimNumber { get; set; } = null!;
+        public DateOnly IncidentDate { get; set; }
+        public string IncidentDescription { get; set; } = null!;
         public Guid ClaimantId { get; set; }
         public Guid? AssignedOfficerId { get; set; }
         public ClaimStatus Status { get; set; }
